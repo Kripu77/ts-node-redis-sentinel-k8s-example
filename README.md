@@ -51,6 +51,9 @@ The example will be based on minikube:
     ```bash
     cd ../helm-chart
     helm install ts-node-redis-sentinel-k8s-example ./ -n  <your-desired-namespace>
+
+    example:
+    helm install ts-node-redis-sentinel-k8s-example ./ -n  ts-node-redis-sentinel-k8s-example
     ```
 
 
