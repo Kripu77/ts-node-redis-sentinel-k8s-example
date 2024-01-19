@@ -73,5 +73,6 @@ The example will be based on minikube:
 To remove the deployed resources:
 
 ```bash
-helm uninstall redis-sentinel
-# Additional cleanup steps if needed
+helm uninstall ts-node-redis-sentinel-k8s-example ./ -n  <your-desired-namespace>
+
+
