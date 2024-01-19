@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: {{.Release.Name}}-cd-sample-server
+   namespace: {{ .Release.Namespace }}
+   labels: 
+     app: {{ .Values.app.label }}
+spec:
+  replicas: {{ .Values.app.replicaCount }}
+  selector:
+     matchLabels:
+       app: {{ .Values.app.label }}
+  template:
+     metadata:
+       labels:
+          app: {{ .Values.app.label }}     
+     spec:     
+       containers:
+         - name: {{.Values.app.containerName }}     
+           image: "{{ .Values.app.image.repository}}:{{ .Values.app.image.tag}}"
+           imagePullPolicy: {{ .Values.app.image.pullPolicy}}      
+           ports: 
+             - containerPort: {{ .Values.app.service.PORT }}
+           env:
+             - name: REDIS_SENTINEL_NODES
+               valueFrom:
+                 configMapKeyRef:
+                    name: {{ .Release.Name }}-cd-sample-server-configmap
+                    key: REDIS_SENTINEL_NODES
