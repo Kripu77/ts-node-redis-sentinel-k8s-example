@@ -64,7 +64,7 @@ The example will be based on minikube:
     kubectl get svc -n <your-desired-namespace>
     
     minikube service cd-service --url
-    ``
+    ```
 
     The application is now running! Visit the url displayed on your console.
 
