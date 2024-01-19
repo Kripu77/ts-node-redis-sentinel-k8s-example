@@ -1,0 +1,14 @@
+app:
+  label: cd-app
+  replicaCount: 1
+  image:
+    repository: sample-app
+    tag: latest
+    pullPolicy: IfNotPresent
+  containerName: cd-app
+  service:
+    name: cd-service
+    type: LoadBalancer
+    PORT: 8000
+  env:
+    REDIS_SENTINEL_NODES: '[{ host: "ts-node-redis-sentinel-k8s-example-node-0.ts-node-redis-sentinel-k8s-example-headless.ts-node-redis-sentinel-k8s-example.cluster.local", port: 26379, }, { host: "ts-node-redis-sentinel-k8s-example-node-1.ts-node-redis-sentinel-k8s-example-headless.ts-node-redis-sentinel-k8s-example.cluster.local", port: 26379, } ]'

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-cd-sample-server-configmap
+  namespace: {{ .Release.Namespace }}
+  labels: 
+    app: {{ .Values.app.label }}  
+data:
+  REDIS_SENTINEL_NODES: "{{ .Values.energymanagementapi.env.MONGO_DB }}"
+
