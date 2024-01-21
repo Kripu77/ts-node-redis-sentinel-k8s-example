@@ -61,9 +61,14 @@ The example will be based on minikube:
 6. **Access the application:**
 
     ```bash
-    kubectl get svc -n <your-desired-namespace>
+    kubectl get svc -n <your-namespace-where-application-is-running>
     
-    minikube service cd-service --url
+    minikube service cd-service --url -n <your-namespace-where-application-is-running>
+
+    example:
+    kubectl get svc -n  ts-node-redis-sentinel-k8s-example
+    minikube service cd-service --url -n ts-node-redis-sentinel-k8s-example
+
       ```
 
     The application is now running! Visit the url displayed on your console.
