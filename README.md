@@ -60,11 +60,11 @@ The example will be based on minikube:
 
 6. **Access the application:**
 
-       ```bash
+    ```bash
     kubectl get svc -n <your-desired-namespace>
     
     minikube service cd-service --url
-    ```
+      ```
 
     The application is now running! Visit the url displayed on your console.
 
@@ -74,5 +74,5 @@ To remove the deployed resources:
 
 ```bash
 helm uninstall ts-node-redis-sentinel-k8s-example ./ -n  <your-desired-namespace>
-
+```
 
