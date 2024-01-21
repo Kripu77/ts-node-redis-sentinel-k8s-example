@@ -1,7 +1,6 @@
 import { Redis } from "ioredis";
 import { config } from "../config";
 
-console.log(config.redis.sentinel.nodes);
 export const redisClient =
   config.redis.mode === "sentinel"
     ? new Redis({
