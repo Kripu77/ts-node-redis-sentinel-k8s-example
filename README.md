@@ -25,8 +25,8 @@ The example will be based on minikube:
 
 2. **Create a docker image for the sampleapp located inside app directory:**
     ```bash
-     cd app
-     docker build -f dockerfile.local -t sample-app:tag .
+    cd app
+    docker build -f dockerfile.local -t sample-app:tag .
 
     example:
     docker build -f dockerfile.local -t sample-app:0.1.0 .
