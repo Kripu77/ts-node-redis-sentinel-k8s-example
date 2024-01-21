@@ -22,12 +22,10 @@ const envVarsSchema = z.object({
 });
 
 const envVars = envVarsSchema.parse({
-  REDIS_MODE: process.env.REDIS_MODE,
-  REDIS_HOST: process.env.REDIS_HOST,
-  REDIS_PORT: parseInt(process.env.REDIS_PORT, 10),
-  REDIS_SENTINEL_NODES: JSON.parse(process.env.REDIS_SENTINEL_NODES),
-  REDIS_MASTER_NAME: process.env.REDIS_MASTER_NAME,
-  REDIS_RETRY_TIMEOUT: parseInt(process.env.REDIS_RETRY_TIMEOUT, 10),
+  ...process.env,
+  REDIS_SENTINEL_NODES: process.env.REDIS_SENTINEL_NODES
+    ? JSON.parse(process.env.REDIS_SENTINEL_NODES)
+    : undefined,
 });
 
 export type RedisConfig = {
