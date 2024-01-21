@@ -1,8 +1,12 @@
 import { Redis } from "ioredis";
 import { config } from "../config";
 
+const enum MODE {
+  SENTINEL = "sentinel",
+}
+
 export const redisClient =
-  config.redis.mode === "sentinel"
+  config.redis.mode === MODE.SENTINEL
     ? new Redis({
         sentinels: config.redis.sentinel.nodes,
         name: config.redis.sentinel.masterName,
