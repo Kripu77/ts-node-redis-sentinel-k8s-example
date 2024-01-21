@@ -40,6 +40,8 @@ export type RedisConfig = {
   };
 };
 
+
+
 export const redis: RedisConfig = {
   redis: {
     host: envVars.REDIS_HOST,
