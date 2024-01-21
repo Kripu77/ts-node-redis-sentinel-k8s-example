@@ -2,9 +2,7 @@ import Express, { Request, Response } from "express";
 import { redisClient } from "./services";
 import { config } from "./config";
 const app = Express();
-const PORT: number = config.port;
-
-console.log(process.env);
+const PORT: number = config.express.port;
 
 async function getTimeStampFromRedis() {
   return await redisClient.get("timeStamp");
